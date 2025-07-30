@@ -4,10 +4,27 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/index.css" rel="stylesheet">
     <title>Aksamedia Intern Test</title>
   </head>
   <body>
+    <script>
+      (function() {
+        try {
+          const persistedAuthState = localStorage.getItem('authState');
+          if (persistedAuthState) {
+            const authState = JSON.parse(persistedAuthState);
+            const theme = authState.theme;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (theme === 'dark' || (theme === 'system' && prefersDark)) {
+              document.documentElement.classList.add('dark');
+            }
+          }
+        } catch (e) {
+          console.error('Error menerapkan tema:', e);
+        }
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
