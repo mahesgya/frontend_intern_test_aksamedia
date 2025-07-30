@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTheme } from '../hooks/use.theme';
 import { type Theme } from '../context/slices/auth.slice';
 
@@ -19,7 +20,7 @@ const SystemIcon = () => (
   </svg>
 );
 
-const themeOptions: { name: Theme; icon: JSX.Element }[] = [
+const themeOptions: { name: Theme; icon: React.ReactNode }[] = [
   { name: 'light', icon: <SunIcon /> },
   { name: 'dark', icon: <MoonIcon /> },
   { name: 'system', icon: <SystemIcon /> },
